@@ -223,40 +223,40 @@ Trigger an alert if the Docker host storage is almost full:
 Trigger an alert if a container is down for more than 30 seconds:
 
 ```yaml
-- alert: jenkins_down
+- alert: java_down
     expr: absent(container_memory_usage_bytes{name="jenkins"})
     for: 30s
     labels:
       severity: critical
     annotations:
-      summary: "Jenkins down"
-      description: "Jenkins container is down for more than 30 seconds."
+      summary: "Java down"
+      description: "Java container is down for more than 30 seconds."
 ```
 
 Trigger an alert if a container is using more than 10% of total CPU cores for more than 30 seconds:
 
 ```yaml
-- alert: jenkins_high_cpu
+- alert: Java_high_cpu
     expr: sum(rate(container_cpu_usage_seconds_total{name="jenkins"}[1m])) / count(node_cpu_seconds_total{mode="system"}) * 100 > 10
     for: 30s
     labels:
       severity: warning
     annotations:
-      summary: "Jenkins high CPU usage"
-      description: "Jenkins CPU usage is {{ humanize $value}}%."
+      summary: "Java high CPU usage"
+      description: "Java CPU usage is {{ humanize $value}}%."
 ```
 
 Trigger an alert if a container is using more than 1.2GB of RAM for more than 30 seconds:
 
 ```yaml
-- alert: jenkins_high_memory
-    expr: sum(container_memory_usage_bytes{name="jenkins"}) > 1200000000
+- alert: Java_high_memory
+    expr: sum(container_memory_usage_bytes{name="Java"}) > 1200000000
     for: 30s
     labels:
       severity: warning
     annotations:
-      summary: "Jenkins high memory usage"
-      description: "Jenkins memory consumption is at {{ humanize $value}}."
+      summary: "Java high memory usage"
+      description: "Java memory consumption is at {{ humanize $value}}."
 ```
 
 ## Setup alerting
