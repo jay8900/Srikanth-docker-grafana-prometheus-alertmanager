@@ -14,6 +14,6 @@ receivers:
             auth_password: ljrshdtwwnnjjxqh
             send_resolved: true
       slack_configs:
-          - api_url: 'https://hooks.slack.com/services/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'
-            channel: '#test123'
+          - api_url: 'https://hooks.slack.com/services/qwsedrfgthyjgkhljkhgfd'
+            channel: '#channel-name'
             send_resolved: true
